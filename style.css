@@ -1,0 +1,147 @@
+/**** CARD GRID NEW STYLE ****/
+
+.br-card {
+    margin: 10px 10px;
+  }
+  
+  /* Flip Cards CSS */
+  
+  .card-container {
+    display: grid;
+    perspective: 700px;
+  }
+  
+  .card-flip {
+    display: grid;
+    grid-template: 1fr / 1fr;
+    grid-template-areas: 'frontAndBack';
+    transform-style: preserve-3d;
+    transition: all 0.7s ease;
+  }
+  
+  .card-flip div {
+    -webkit-backface-visibility: hidden;
+    /* cleans up flip in Safari */
+    backface-visibility: hidden;
+    transform-style: preserve-3d;
+  }
+  
+  .front {
+    grid-area: frontAndBack;
+  }
+  
+  .back {
+    grid-area: frontAndBack;
+    transform: rotateY(-180deg);
+  }
+  
+  .card-container:hover .card-flip {
+    transform: rotateY(180deg);
+  }
+  
+  /* Formatting the contents */
+  
+  a.card-link {
+    text-decoration: none !important;
+  }
+  
+  .card-icon {
+    height: 130px;
+    margin-top: 10px;
+  }
+  
+  .card-title {
+    text-decoration: none !important;
+  }
+  
+  .card.front {
+    background-color: #fff;
+  }
+  
+  .card.front h4 {
+    font-size: 24px;
+    text-decoration: none !important;
+    color: #000;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .card.back h4 {
+    font-size: 24px;
+    text-decoration: none !important;
+    color: #fff;
+    padding-left: 16px;
+    padding-right: 16px;
+  }
+  
+  .card-back-link,
+  .card-back-link:visited,
+  .card-back-link:hover {
+    color: #fff !important;
+    text-decoration: none !important;
+  }
+  
+  .card.front .card-block {
+    background-color: #fff;
+  }
+  
+  .card.front p.card-text {
+    color: #fff;
+    font-size: 16px;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  
+  .card.back p.card-text {
+    font-size: 16px;
+    padding-left: 1em;
+    padding-right: 1em;
+  }
+  
+  .card-footer-override {
+    background-color: #fff !important;
+    color: rgb(28, 109, 161) !important;
+    font-weight: bold;
+    font-size: 16px;
+    border: 0 !important;
+    text-align: center !important;
+    display: block;
+    margin-top: 2em;
+  }
+  
+  .card-footer-back {
+    background-color: rgba(0, 0, 0, 0) !important;
+    color: #fff !important;
+    font-weight: bold;
+    font-size: 16px;
+    border: 0 !important;
+    text-align: center !important;
+    display: block;
+  }
+  
+  .card-footer-link,
+  .card-footer-link:visited,
+  .card-footer-link:hover {
+    text-decoration: underline !important;
+    color: rgb(28, 109, 161) !important;
+  }
+  
+  .card.back {
+    -webkit-box-shadow: 3px 3px 15px -4px rgba(0, 0, 0, 0.82);
+    box-shadow: 3px 3px 15px -4px rgba(0, 0, 0, 0.82);
+    /* adds dropshadow to reverse view */
+  }
+  
+  /* fix for MSFT Edge browsers */
+  
+  .card.back .card-block {
+    opacity: 0;
+  }
+  
+  .card-container:hover .card.back .card-block {
+    transition-delay: 0.25s;
+    transition-duration: 0s;
+    transition-property: opacity;
+    transition-timing-function: ease-out;
+    opacity: 100;
+  }
